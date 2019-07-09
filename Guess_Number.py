@@ -2,7 +2,7 @@
 
 #importing Random Libray 
 import random
-#importing Time Library
+#importing Time Library 
 import time
 
 Rand = None
@@ -22,7 +22,7 @@ def HintCal(No) :
 		mid = int((Lowest+Largest)/2)
 		if Rand > mid :
 			print('\n===================================================\nHINT: My Number is Bigger than the Midrange\n===================================================\n')
-		elif Rand > mid :
+		elif Rand < mid :
 			print('\n===================================================\nHINT: My Number is Smaller than the Midrange\n===================================================\n')
 		else :
 			print('\n===================================================\nHINT: My Number is Near the the Midrange\n===================================================\n')
@@ -77,9 +77,10 @@ while(Rand == None) :
 		Rand = random.randint(Lowest,Largest)
 
 		print('\n\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n'+Name+', Be ready I am Picking a number from your Range\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-		for countdown in range(5) :
-			print(countdown,' ')
+		for countdown in ['Ready','Steady','Go'] :
+			print(countdown)
 			time.sleep(1)
+			
 		print('\n')
 
 	else :
@@ -101,7 +102,7 @@ while (Chances>0):
 
 	if Guessed == Rand :
 		print('\n################################################\nBingo!! You have Guessed it right !! It was ',Guessed,'\n')
-		print('You have used ',Chances,' Chances and ',Hint,' Hints\nTotal = Chances + Hints = ',Chances,' + ',Hint,' =',(Chances+Hint),'\n################################################\n')
+		print('You have used ',Chances,' Chances and ',Hint,' Hints\nTotal = Chances Used + Hints Used = ',Chances,' + ',Hints,' =',((6-Chances)+Hint),'\n################################################\n')
 		break
 
 	else :
@@ -119,6 +120,7 @@ while (Chances>0):
 			if Hints == 'Yes' :
 				pass
 			else :
+				#Breaks the while loop if the user enters anything other than Yes
 				break
 
 			Hint = Hint + 1
@@ -127,11 +129,12 @@ while (Chances>0):
 			HintCal(Hint)
 			
 
-
-			
+	
 
 	Chances = Chances - 1
 	#Invoking EndGame() Function
 	EndGame(Play)
 		
 
+print('\n################################################\nAns:',Rand,'\n')
+	
